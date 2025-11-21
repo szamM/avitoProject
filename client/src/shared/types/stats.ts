@@ -21,3 +21,7 @@ export interface DecisionsData {
     rejected: number
     requestChanges: number
 }
+
+
+export type CategoriesChart = Record<string, number>
+export type Period = "today" | "week" | "month" | "custom";

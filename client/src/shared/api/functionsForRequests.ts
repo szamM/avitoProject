@@ -1,6 +1,8 @@
 import {http} from './http.ts';
 import type {AdStatus, Advertisement} from "../types/ad.ts";
 import type {PaginationType} from "../types/pagination.ts";
+import type {ActivityData, CategoriesChart, DecisionsData, StatsSummary} from "../types/stats.ts";
+// import type {ActivityData, CategoryChartItem, DecisionsData, StatsSummary} from "../types/stats.ts";
 
 type GetAdsParams = {
     page?: number,
@@ -29,6 +31,9 @@ type rejectInfo = {
     comment?: string
 }
 
+type Period = "today" | "week" | "month" | "custom";
+
+
 export async  function getAds(params: GetAdsParams): Promise<GetAdsResponse> {
     const response = await http.get<GetAdsResponse>('/ads', {
         params})
@@ -52,5 +57,26 @@ export async function rejectAd(id: number, rejectInfo: rejectInfo): Promise<Appl
 
 export async function requestChangesAd(id: number, rejectInfo: rejectInfo): Promise<ApplyResponse> {
     const response = await http.post<ApplyResponse>(`/ads/${id}/request-changes`, rejectInfo)
+    return response.data;
+}
+
+
+export async function getStatsSummary(period: Period): Promise<StatsSummary> {
+    const response = await http.get<StatsSummary>(`/stats/summary`, { params: { period } })
+    return response.data;
+}
+
+export async function getActivityChart(period: Period): Promise<ActivityData[]> {
+    const response = await http.get<ActivityData[]>(`/stats/chart/activity`, { params: { period } })
+    return response.data;
+}
+
+export async function getPieChart(period: Period): Promise<DecisionsData> {
+    const response = await http.get<DecisionsData>(`/stats/chart/decisions`, { params: { period } })
+    return response.data;
+}
+
+export async function getCategories(period: Period): Promise<CategoriesChart> {
+    const response = await http.get<CategoriesChart>(`/stats/chart/categories`, { params: { period } })
     return response.data;
 }
