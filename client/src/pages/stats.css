@@ -1,0 +1,158 @@
+.statsPage {
+    max-width: 1200px;
+    margin: 24px auto 40px;
+    padding: 0 24px;
+}
+
+.statsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 16px;
+}
+
+.statsTitle {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.statsButton {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid #dedede;
+    background: #f8f8f8;
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.05s ease;
+}
+
+.statsButton:hover {
+    background: #f0f0f0;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 960px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.statsCard {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1px solid #e5e5e5;
+}
+
+.statsCardTitle {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 10px;
+}
+
+.chartBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    overflow: visible;
+}
+
+.chartText {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metricsControls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.metricsLabel {
+    font-size: 14px;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.metricsSelect,
+.chartSelect {
+    padding: 6px 10px;
+    border-radius: 12px;
+    border: 1px solid #d0d0d0;
+    background: #ffffff;
+    font-size: 13px;
+    outline: none;
+    min-width: 140px;
+}
+
+.metricsSelect:focus,
+.chartSelect:focus {
+    border-color: #4f7cff;
+    box-shadow: 0 0 0 2px rgba(79, 124, 255, 0.18);
+}
+
+.metricsRows {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metricsRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 4px 4px;
+    border-radius: 8px;
+}
+
+.metricsRow--total {
+    background: #f3f4f6;
+    font-weight: 500;
+}
+
+.metricsName {
+    color: #4b5563;
+}
+
+.metricsValue {
+    color: #111827;
+}
+
+.chartControls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 4px;
+}
+
+.chartLabel {
+    font-size: 14px;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

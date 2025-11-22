@@ -1,5 +1,6 @@
 import type {AdFilters} from "../../types/ad.ts";
 import {useState, useEffect} from "react";
+import "./filter.css"
 
 type FilterProps = {
     filters: AdFilters
@@ -43,42 +44,44 @@ const Filter = ({filters, onChange, onReset}: FilterProps) => {
         setStatus(filters.status)
     }, [filters])
     return (
-        <div>
-            <label>
-                <input
-                    type="checkbox"
-                    checked={status.includes('pending')}
-                    onChange={() => toggleStatus('pending')}
-                />
-                Pending
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    checked={status.includes('approved')}
-                    onChange={() => toggleStatus('approved')}
-                />
-                Approved
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    checked={status.includes('rejected')}
-                    onChange={() => toggleStatus('rejected')}
-                />
-                Rejected
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    checked={status.includes('draft')}
-                    onChange={() => toggleStatus('draft')}
-                />
-                Draft
-            </label>
+        <div className={"filter"}>
+            <div className={"statuses"}>
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={status.includes('pending')}
+                        onChange={() => toggleStatus('pending')}
+                    />
+                    Pending
+                </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={status.includes('approved')}
+                        onChange={() => toggleStatus('approved')}
+                    />
+                    Approved
+                </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={status.includes('rejected')}
+                        onChange={() => toggleStatus('rejected')}
+                    />
+                    Rejected
+                </label>
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={status.includes('draft')}
+                        onChange={() => toggleStatus('draft')}
+                    />
+                    Draft
+                </label>
+            </div>
             <input
-                // id={"1"}
                 type="number"
+                className="filterInput"
                 value={minPr ?? ""}
                 placeholder="Минимальная цена:"
                 onChange={(e) => {
@@ -86,19 +89,21 @@ const Filter = ({filters, onChange, onReset}: FilterProps) => {
                     setMinPrice(value === '' ? undefined : Number(value))
                 }}
             />
+
             <input
-                // id={"2"}
                 type="number"
+                className="filterInput"
                 value={maxPr ?? ""}
-                placeholder="Максимальная цена:"
+                placeholder="Введите максимальную цену:"
                 onChange={(e) => {
                     const value = e.target.value;
                     setMaxPrice(value === '' ? undefined : Number(value))
                 }}
             />
+
             <input
-                // id={"2"}
                 type="text"
+                className="filterInput filterInput-wide"
                 value={search}
                 placeholder="Поиск по названию"
                 onChange={(e) => {
@@ -106,19 +111,22 @@ const Filter = ({filters, onChange, onReset}: FilterProps) => {
                 }}
             />
             <select
-            value={sortBy}
-            onChange={(e) => {setSortBy(e.target.value as 'createdAt' | 'price' | 'priority')}}>
+                className="filterSelect"
+                value={sortBy}
+                onChange={(e) => {setSortBy(e.target.value as 'createdAt' | 'price' | 'priority')}}>
                 <option value="createdAt">По дате</option>
                 <option value="price">По цене</option>
                 <option value="priority">По приоритету</option>
             </select>
             <select
+                className="filterSelect"
                 value={sortOrder}
                 onChange={(e) => {setSortOrder(e.target.value as 'asc' | 'desc')}}>
                 <option value="asc">Возрастание</option>
                 <option value="desc">Убывание</option>
             </select>
             <select
+                className="filterSelect"
                 value={categoryId ?? ''}
                 onChange={(event) => {
                     const value = event.target.value
@@ -134,8 +142,11 @@ const Filter = ({filters, onChange, onReset}: FilterProps) => {
                 <option value="6">Мода</option>
                 <option value="7">Детское</option>
             </select>
-            <button type={"button"} onClick={handleChange}>Применить фильтр</button>
-            <button type={"button"} onClick={handleReset}>Сбросить фильтр</button>
+            <div className={"buttonsUse"}>
+                <button type={"button"} onClick={handleChange}>Применить фильтр</button>
+                <button type={"button"} onClick={handleReset}>Сбросить фильтр</button>
+            </div>
+
         </div>
         )
 

@@ -1,5 +1,6 @@
 import type {Advertisement} from "../../types/ad.ts";
 import {Link} from "react-router-dom";
+import "./card.css"
 
 
 type CardProps = {
@@ -9,15 +10,21 @@ type CardProps = {
 }
 
 const Card = ({ advert, index, ids }: CardProps) => {
+    const thumbnail = advert.images[0]
     return (
-        <div>
-            <h3>{advert.title}</h3>
-            <p> Цена: {advert.price}</p>
-            <p> Категория: {advert.category}</p>
-            <p> Дата создания: {advert.createdAt}</p>
-            <p> Статус: {advert.status}</p>
-            <p> Приоритет: {advert.priority}</p>
-            <Link to={`/item/${advert.id}`} state={{ ids, index }}>Открыть →</Link>
+        <div className={"cardView"}>
+            <img src={thumbnail} className="cardImage"></img>
+            <div className={"cardInfo"}>
+                <h3 className={"cardTitle"}>{advert.title}</h3>
+                <p className={"cardPrice"}> Цена: {advert.price} ₽</p>
+                <p className={"cardCategory"}> Категория: {advert.category}</p>
+                <p className={"cardDate"}> Дата создания: {advert.createdAt}</p>
+                <p className={"cardStatus"}> Статус: {advert.status}</p>
+                <p className={"cardPriority"}> Приоритет: {advert.priority}</p>
+                <Link to={`/item/${advert.id}`} state={{ ids, index }} className={"openCard"}>Открыть</Link>
+            </div>
+
+
         </div>
         )
 }

@@ -1,0 +1,82 @@
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+}
+
+.statuses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.statuses label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.filterInput {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    font-size: 14px;
+    min-width: 170px;
+}
+
+.filterInput-wide {
+    min-width: 220px;
+}
+
+.filterSelect {
+    height: 34px;
+    padding: 0 32px 0 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    font-size: 14px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2371717a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
+}
+
+.buttonsUse {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.buttonsUse button {
+    height: 34px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.buttonsUse button:first-child {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+.buttonsUse button:first-child:hover {
+    background: #2563eb;
+}
+
+.buttonsUse button:last-child {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.buttonsUse button:last-child:hover {
+    background: #e5e7eb;
+}

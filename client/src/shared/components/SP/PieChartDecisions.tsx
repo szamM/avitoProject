@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts'
-import type { DecisionsData } from '../../types/stats'
-import {getPieChart} from '../../api/functionsForRequests'
+import { useEffect, useState } from "react"
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts"
+import type { DecisionsData } from "../../types/stats"
+import { getPieChart } from "../../api/functionsForRequests"
 
+type Period = "today" | "week" | "month" | "custom"
 
-
-type Period = 'today' | 'week' | 'month' | 'custom'
+const COLORS = ["#8bc48a", "#f5a6aa", "#f3c78b"] // мягкие спокойные цвета
 
 const PieChartDecisions = () => {
-    const [period, setPeriod] = useState<Period>('week') // например
+    const [period, setPeriod] = useState<Period>("week")
     const [data, setData] = useState<DecisionsData | null>(null)
     const [isLoading, setIsLoading] = useState(false)
 
@@ -27,48 +27,56 @@ const PieChartDecisions = () => {
 
         load()
     }, [period])
-    const chartData =
-        data
-            ? [
-                { name: 'Одобрено', value: data.approved },
-                { name: 'Отклонено', value: data.rejected },
-                { name: 'На доработку', value: data.requestChanges },
-            ]
-            : []
-    const COLORS = ['#4caf50', '#f44336', '#ff9800']
-    if (isLoading) return <div>График решений загружается...</div>
-    if (!data) return <div>Нет данных для графика</div>
+
+    const chartData = data
+        ? [
+            { name: "Одобрено", value: data.approved },
+            { name: "Отклонено", value: data.rejected },
+            { name: "На доработку", value: data.requestChanges },
+        ]
+        : []
+
+    if (isLoading) return <div className="chartText">График решений загружается...</div>
+    if (!data) return <div className="chartText">Нет данных для графика</div>
 
     return (
-        <div>
-            <select
-                value={period}
-                onChange={(e) => setPeriod(e.target.value as Period)}
-            >
-                <option value="today">Сегодня</option>
-                <option value="week">Неделя</option>
-                <option value="month">Месяц</option>
-            </select>
+        <div className="chartBlock">
+            <div className="chartControls">
+                <label className="chartLabel">
+                    Период:
+                    <select
+                        className="chartSelect"
+                        value={period}
+                        onChange={(e) => setPeriod(e.target.value as Period)}
+                    >
+                        <option value="today">Сегодня</option>
+                        <option value="week">Неделя</option>
+                        <option value="month">Месяц</option>
+                    </select>
+                </label>
+            </div>
 
-            <PieChart width={400} height={300}>
-                <Pie
-                    data={chartData}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={100}
-                    label
-                >
-                    {chartData.map((entry, index) => (
-                        <Cell key={entry.name} fill={COLORS[index]} />
-                    ))}
-                </Pie>
-                <Tooltip />
-                <Legend />
-            </PieChart>
+            <div className="chartContainer">
+                <PieChart width={360} height={260}>
+                    <Pie
+                        data={chartData}
+                        dataKey="value"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={90}
+                        label
+                    >
+                        {chartData.map((entry, index) => (
+                            <Cell key={entry.name} fill={COLORS[index]} />
+                        ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                </PieChart>
+            </div>
         </div>
     )
 }
 
-export default PieChartDecisions;
+export default PieChartDecisions

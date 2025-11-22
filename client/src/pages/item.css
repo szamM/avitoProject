@@ -1,0 +1,267 @@
+
+.itemPage {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 24px 28px;
+    border: 2px solid #000;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.itemPage-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.itemPage-topRow {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+.itemSection-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+
+.itemGallery,
+.itemModeration {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 16px;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+.itemGallery-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.itemGallery-image {
+    border-radius: 12px;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+.itemModeration {
+    background: #fff8e1;
+}
+
+.itemModeration-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.itemModeration-entry {
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #f3e4b6;
+    font-size: 13px;
+}
+
+.itemModeration-row {
+    line-height: 1.4;
+}
+
+.itemModeration-label {
+    color: #555;
+    font-weight: 500;
+}
+
+.itemDetails {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 16px 20px;
+    background: #fafafa;
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr;
+    gap: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.itemDescription p {
+    margin: 0 0 8px;
+    line-height: 1.5;
+}
+
+.itemPrice {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.itemCharacteristics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.itemCharacteristics-key {
+    padding: 4px 6px;
+    font-weight: 500;
+    color: #555;
+    width: 45%;
+}
+
+.itemCharacteristics-value {
+    padding: 4px 6px;
+}
+
+.itemCharacteristics-table tr:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.itemSeller p {
+    margin: 2px 0;
+}
+
+.itemActionsRow {
+    display: flex;
+    justify-content: center;
+}
+
+.itemActions {
+    display: flex;
+    gap: 16px;
+}
+
+.itemBtn {
+    padding: 10px 18px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.05s ease, box-shadow 0.05s ease, background 0.1s ease;
+}
+
+.itemBtn-approve {
+    background: #c8f2ce;
+    color: #1b5e20;
+}
+
+.itemBtn-reject {
+    background: #ffd7d7;
+    color: #b71c1c;
+}
+
+.itemBtn-changes {
+    background: #ffe9c6;
+    color: #9a5b00;
+}
+
+.itemBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.itemBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+    box-shadow: none;
+    transform: none;
+}
+
+.itemDecision {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 16px 20px;
+    background: #fffdf4;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.itemDecision-reasons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.itemRadio {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.itemDecision-input {
+    margin-top: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    min-width: 260px;
+}
+
+.itemDecision-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 12px;
+}
+
+.itemMessage {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #e8f5e9;
+    color: #1b5e20;
+    font-size: 14px;
+}
+
+.itemFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.itemBackLink {
+    font-size: 14px;
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.itemBackLink:hover {
+    text-decoration: underline;
+}
+
+.itemPrevNext {
+    display: flex;
+    gap: 8px;
+}
+
+.itemPrevNext-btn {
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.itemPrevNext-btn:disabled {
+    cursor: default;
+    opacity: 0.4;
+}
+
+.itemPage-loading {
+    max-width: 1100px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 16px;
+}

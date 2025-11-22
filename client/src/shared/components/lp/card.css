@@ -1,0 +1,64 @@
+.cardView{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 25px;
+    gap: 16px;
+    box-shadow: 0 12px 14px rgba(0,0,0,0.04);
+    align-items: center;
+    max-width: 850px;
+    margin: 35px auto;
+}
+
+.openCard{
+    display: flex;
+    background: #58ac36;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: flex-start;
+    margin-top: 16px;
+    margin-left: 400px;
+}
+
+.openCard:hover{
+    background: #4a9330;
+}
+
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+    margin: 0 16px;
+    flex: 1;
+}
+
+.cardTitle{
+    font-size: 18px;
+    margin: 0 0 4px;
+}
+
+.cardPrice{
+    margin: 2px;
+}
+.cardCategory{
+    margin: 2px;
+}
+.cardDate{
+    margin: 2px;
+}
+.cardStatus{
+    margin: 2px;
+}
+.cardPriority{
+    margin: 2px;
+}
+
+.cardImage{
+    /*margin-left: 16px;*/
+    border-radius: 15px;
+}

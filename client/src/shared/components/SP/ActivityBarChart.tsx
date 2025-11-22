@@ -1,9 +1,15 @@
-import {useEffect, useState} from "react";
-import type {ActivityData} from "../../types/stats.ts";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
-import {getActivityChart} from "../../api/functionsForRequests.ts";
-
-
+import { useEffect, useState } from "react"
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+} from "recharts"
+import type { ActivityData } from "../../types/stats"
+import { getActivityChart } from "../../api/functionsForRequests"
 
 const ActivityBarChart = () => {
     const period = "week"
@@ -35,6 +41,7 @@ const ActivityBarChart = () => {
             cancelled = true
         }
     }, [period])
+
     const chartData = data.map((item) => ({
         ...item,
         label: new Date(item.date).toLocaleDateString("ru-RU", {
@@ -44,23 +51,23 @@ const ActivityBarChart = () => {
     }))
 
     if (isLoading) {
-        return <div>График активности: данные загружаются…</div>
+        return <div className="chartText">График активности: данные загружаются…</div>
     }
 
     if (!data.length) {
-        return <div>График активности: данных нет</div>
+        return <div className="chartText">График активности: данных нет</div>
     }
 
     return (
-        <BarChart width={600} height={300} data={chartData}>
+        <BarChart width={500} height={260} data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="label" />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="approved" stackId="a" fill="#4caf50" />
-            <Bar dataKey="rejected" stackId="a" fill="#f44336" />
-            <Bar dataKey="requestChanges" stackId="a" fill="#ff9800" />
+            <Bar dataKey="approved" stackId="a" fill="#8bc48a" />
+            <Bar dataKey="rejected" stackId="a" fill="#f5a6aa" />
+            <Bar dataKey="requestChanges" stackId="a" fill="#f3c78b" />
         </BarChart>
     )
 }
